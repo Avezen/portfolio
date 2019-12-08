@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProjectItem = ({item, current}) => (
+const ProjectItem = ({item}) => (
     <ItemLink href={item.url} target={'_blank'}>
         <Image image={item.image}>
 
         </Image>
-        <ProjectTitle show={current}>
+        <ProjectTitle>
             {item.name}
         </ProjectTitle>
     </ItemLink>
@@ -15,20 +15,15 @@ const ProjectItem = ({item, current}) => (
 export default ProjectItem;
 
 const ItemLink = styled.a`
-    width: 25em;
-    height: 100%;
+    width: 24em;
+    height: 15em;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     background-color: white;
     border: solid 5px ${props => props.theme.mainColor};
-    overflow: hidden;
-    background-image: url(${props => props.image});
-    background-position: center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
     cursor: pointer;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 `;
 
 const Image = styled.div`
@@ -36,39 +31,31 @@ const Image = styled.div`
     height: 100%;
     background-image: url(${props => props.image});
     background-position: center;
-    background-size: 100% auto;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    opacity: 0.5;
+    opacity: 1;
     
-    transition: opacity 0.5s;
+    transition: all 0.5s;
     
     ${ItemLink}:hover & {
-        opacity: 1;
+        opacity: 0.2;
+        background-size: 110% 110%;
         
-        transition: opacity 0.5s;
+        transition: all 0.5s;
     }
 `;
 
 const ProjectTitle = styled.div`
     position: absolute;
     padding: 2em;
-    bottom: ${props => props.show ? 0 : '-6em'};
-    background-color: ${props => props.theme.mainSecondColor};
     color: ${props => props.theme.mainColor};
-    border: solid 3px ${props => props.theme.mainColor};
-    border-bottom: 0;
-    transition: all 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s;
     
-    
-    ${Image}:hover & {
-        -webkit-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        -o-transform: scale(1.2);
-        transform: scale(1.2);
-        : rebeccapurple;
+    ${ItemLink}:hover & {
+        opacity: 1;
         
-        transition: transform 0.5s;
+        transition: opacity 0.5s;
     }
 `;
 

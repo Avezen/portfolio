@@ -2,7 +2,6 @@ import React from 'react';
 import styled, {keyframes} from 'styled-components';
 import line1 from '../../assets/img/line1.png'
 
-
 const WelcomeScreen = ({executeScroll}) => {
     return (
         <Container>
@@ -28,6 +27,8 @@ const WelcomeScreen = ({executeScroll}) => {
             <ImageContainer>
                 <LineImage image={line1}/>
             </ImageContainer>
+
+            <Foot />
         </Container>
     );
 };
@@ -158,4 +159,14 @@ const ArrowDown = styled.div`
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     margin-bottom: 0.8em;
+`;
+
+const Foot = styled.div`
+    height: 5em;
+    width: 1040px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    background-color: ${props => props.theme.mainSecondColor};
+    box-shadow: ${props => props.theme.mainShadow};
 `;

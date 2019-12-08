@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import line2 from "../../assets/img/line2.png";
-import php from "../../assets/img/logo/php.png";
-import symfony from "../../assets/img/logo/symfony.png";
-import html from "../../assets/img/logo/html.png";
-import css from "../../assets/img/logo/css.png";
-import react from "../../assets/img/logo/react.png";
-import ts from "../../assets/img/logo/ts.png";
+import php from "../../assets/img/logo/php.svg";
+import symfony from "../../assets/img/logo/symfony.svg";
+import html from "../../assets/img/logo/html5.svg";
+import css from "../../assets/img/logo/css3.svg";
+import react from "../../assets/img/logo/react.svg";
+import ts from "../../assets/img/logo/typescript.svg";
 import StackItem from "../common/StackItem";
 
 const stackItems = [
@@ -47,10 +47,11 @@ const stackItems = [
 const StackScreen = () => {
     return (
         <Container>
-            <LineImage image={line2}/>
-            <LineCircle/>
+            <LineCircleRight />
+            <LineImage image={line2} />
+            <LineCircleLeft />
             <StyledHeader>
-                STACK
+                EXPERIENCE
             </StyledHeader>
             <StyledRow>
                 {stackItems.map((item, key) =>
@@ -110,14 +111,14 @@ const LineImage = styled.div`
     max-width: 1140px;
 `;
 
-const LineCircle = styled.div`
+const LineCircleLeft = styled.div`
     width: 1em;
     height: 1em;
     border-radius: 50%;
     border: solid 2px ${props => props.theme.mainColor};
     position: relative;
     left: 27.05%;
-    top: -1.8em;
+    top: -2.8em;
     
     @media (max-width: ${props => props.theme.rwd.md}px) {
       left: 26.7%;
@@ -128,18 +129,39 @@ const LineCircle = styled.div`
     }
 `;
 
-const StyledHeader = styled.h1`
+const LineCircleRight = styled.div`
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: solid 2px ${props => props.theme.mainColor};
     position: relative;
-    left: 25%;
-    width: 200px;
-    color: ${props => props.theme.mainColor};
-    
-    @media (max-width: ${props => props.theme.rwd.lg}px) {
-      left: 15%;
+    left: 69.6%;
+    top: -12.6em;
+
+    @media (max-width: ${props => props.theme.rwd.md}px) {
+      left: 69.2%;
     }
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
-      left: 5%;
+      left: 68.5%;
+    }
+`;
+
+const StyledHeader = styled.h1`
+    position: relative;
+    left: 25%;
+    width: 300px;
+    color: ${props => props.theme.mainColor};
+    text-align: center;
+    
+    @media (max-width: ${props => props.theme.rwd.lg}px) {
+        left: 15%;
+    }
+    
+    @media (max-width: ${props => props.theme.rwd.sm}px) {
+        left: 50%;
+        margin-left: -150px;
+        margin-top: 1.5em;
     }
     
     &:after {
@@ -149,7 +171,8 @@ const StyledHeader = styled.h1`
         height: 4px;
         position: absolute;
         bottom: -10px;
-        left: 64px;
+        left: 50%;
+        margin-left: -52px;
         background-color: ${props => props.theme.mainColor};
     }
 `;

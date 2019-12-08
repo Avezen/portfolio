@@ -86,8 +86,9 @@ const StyledHeader = styled.h1`
     }
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
-      left: 5%;
-      top: 1em;
+        top: 1em;
+        left: 50%;
+        margin-left: -150px;
     }
     
     &:after {
@@ -96,7 +97,8 @@ const StyledHeader = styled.h1`
         display: block;
         position: absolute;
         bottom: -10px;
-        left: 66px;
+        left: 50%;
+        margin-left: -81px;
         content: "";
         background-color: ${props => props.theme.mainColor};        
     }

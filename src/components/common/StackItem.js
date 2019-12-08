@@ -5,7 +5,7 @@ const StackItem = ({item}) => (
     <Item>
         <ItemContent>
             <PhotoWrapper>
-                <img src={item.image} width={'80%'} alt={item.name}/>
+                <Logo src={item.image}/>
             </PhotoWrapper>
             <ExperienceText>
                 {item.experience}
@@ -20,8 +20,6 @@ export default StackItem;
 const Item = styled.div`
     width: 100%;
     position: relative;
-    box-shadow: ${props => props.theme.mainShadow};
-    border-radius: 25px;
 
     &:after {
       display: block;
@@ -39,37 +37,42 @@ const ItemContent = styled.div`
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: ${props => props.theme.mainSecondColor};
-    border-radius: 25px;
-`;
-
-const ExperienceText = styled.p`
-    position: absolute;
-    margin: 0;
-    bottom: 0.5em;
-    z-index: 3;
-    color: ${props => props.theme.mainColor};
-    font-size: 2em;
     
-    &:before {
-        width: 50%;
-        height: 4px;
-        display: block;
-        position: absolute;
-        bottom: 45px;
-        left: 40px;
-        background-color: ${props => props.theme.mainColor};   
-        content: "";     
+    @media (max-width: ${props => props.theme.rwd.md}px) {
+        padding: 1em;
+    }
+    
+    @media (max-width: ${props => props.theme.rwd.sm}px) {
+        padding: 2em;
     }
 `;
 
-const PhotoWrapper = styled.div`
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    background-color: ${props => props.theme.mainThirdColor};
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+const Logo = styled.div`
+    width: 100%;
+    height: 100%;
+    background: ${props => props.theme.mainSecondColor};
+    mask: url(${props => props.src});
+    mask-size: auto 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    ${Item}:hover & {
+        background: ${props => props.theme.mainColor};
+    }
 `;
+
+const ExperienceText = styled.p`
+    margin: 0;
+    bottom: 0;
+    z-index: 3;
+    color: ${props => props.theme.mainSecondColor};
+    font-size: 2em;
+    font-family: 'Josefin Sans', sans-serif;
+    
+`;
+
+const PhotoWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+`;
+

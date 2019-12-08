@@ -185,8 +185,6 @@ class ContactForm extends Component {
 }
 
 const EmailStatusWrapper = ({emailStatus}) => {
-    console.log(emailStatus);
-    console.log(emailStatuses.sending);
     return (
         <EmailStatus emailStatus={emailStatus}>
                 {emailStatus === emailStatuses.sending &&
