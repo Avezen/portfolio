@@ -19,7 +19,6 @@ class Carousel extends Component {
 
     componentDidMount() {
         if(this.carouselWrapper.current){
-            console.log('dsd');
             this.carouselWrapper.current.style.cssText = `height: ${this.projectWrapper.current.offsetHeight + this.buttonsWrapper.current.offsetHeight}px`;
         }
 
@@ -128,31 +127,33 @@ class Carousel extends Component {
 
             carouselElement.addEventListener('mouseleave', (e) => {
                 e.preventDefault();
-                this.pointerDown = false;
+                if(this.pointerDown === true){
+                    this.pointerDown = false;
 
-                this.pointerUpValue = this.pointerUpValue - (this.pointerDownValue - e.pageX);
-                this.setState({project: this.projectNumberByTranslate(this.pointerUpValue)});
+                    this.pointerUpValue = this.pointerUpValue - (this.pointerDownValue - e.pageX);
+                    this.setState({project: this.projectNumberByTranslate(this.pointerUpValue)});
 
-                if(
-                    this.projectNumberByTranslate(this.pointerUpValue) <= 1
-                ){
-                    this.pointerUpValue = this.projectTranslateByNumber(1);
-                    this.setState({project: 1});
+                    if(
+                        this.projectNumberByTranslate(this.pointerUpValue) <= 1
+                    ){
+                        this.pointerUpValue = this.projectTranslateByNumber(1);
+                        this.setState({project: 1});
 
-                    carouselElement.style.cssText = `transform: translateX(${this.pointerUpValue}px)`;
-                    carouselElement.style.cssText = `
+                        carouselElement.style.cssText = `transform: translateX(${this.pointerUpValue}px)`;
+                        carouselElement.style.cssText = `
                         transition: all 0.3s;
                         `;
 
-                }else if(this.projectNumberByTranslate(this.pointerUpValue) > this.props.items.length - 2){
-                    console.log('right');
-                    this.pointerUpValue = this.projectTranslateByNumber(this.props.items.length - 2);
-                    this.setState({project: this.props.items.length - 2});
+                    }else if(this.projectNumberByTranslate(this.pointerUpValue) > this.props.items.length - 2){
+                        console.log('right');
+                        this.pointerUpValue = this.projectTranslateByNumber(this.props.items.length - 2);
+                        this.setState({project: this.props.items.length - 2});
 
-                    carouselElement.style.cssText = `transform: translateX(${this.pointerUpValue}px)`;
-                    carouselElement.style.cssText = `
+                        carouselElement.style.cssText = `transform: translateX(${this.pointerUpValue}px)`;
+                        carouselElement.style.cssText = `
                         transition: all 0.3s;
                         `;
+                    }
                 }
             });
 

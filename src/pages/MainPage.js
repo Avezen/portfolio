@@ -1,10 +1,10 @@
 import React, {Component, createRef} from 'react';
 import styled from 'styled-components';
-import WelcomeScreen from "../components/mainPage/WelcomeScreen";
-import ProjectsScreen from "../components/mainPage/ProjectsScreen";
-import StackScreen from "../components/mainPage/StackScreen";
-import ContactScreen from "../components/mainPage/ContactScreen";
-import Footer from "../components/mainPage/Footer";
+import WelcomeScreen from "../components/MainPage/WelcomeScreen";
+import ProjectsScreen from "../components/MainPage/ProjectsScreen";
+import StackScreen from "../components/MainPage/StackScreen";
+import ContactScreen from "../components/MainPage/ContactScreen";
+import Footer from "../components/MainPage/Footer";
 import scrollToComponent from 'react-scroll-to-component';
 import SocialIcons from "../components/common/SocialIcons";
 import {isMobile} from 'react-device-detect';

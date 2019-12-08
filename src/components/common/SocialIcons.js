@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import git from "../../assets/img/logo/git.png";
-import linked from "../../assets/img/logo/linked.png";
+import git from "../../assets/img/logo/git.svg";
+import linked from "../../assets/img/logo/linked.svg";
 
 
 const socials = [
@@ -27,7 +27,7 @@ const SocialIcons = () => {
                             <SocialName>
                                 {item.name}
                             </SocialName>
-                            <img src={item.logo} alt={item.name} width={40}/>
+                            <Image src={item.logo}/>
                         </SocialIcon>
                     </a>
                 );
@@ -75,4 +75,14 @@ const SocialIcon = styled.div`
 const SocialName = styled.div`
     width: 5em;
     text-align: left;
+`;
+
+const Image = styled.div`
+    width: 40px;
+    height: 40px;
+    background: ${props => props.theme.mainSecondColor};
+    mask: url(${props => props.src});
+    mask-size: auto 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
 `;
