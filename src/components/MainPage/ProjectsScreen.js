@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import przetarg from '../../assets/img/projects/przetarg.png';
-import chata from '../../assets/img/projects/chata.png';
-import strefa from '../../assets/img/projects/strefa.png';
-import ProjectItem from "../common/ProjectItem";
+import przetarg from '../../assets/img/projects/przetarg.webp';
+import chata from '../../assets/img/projects/chata.webp';
+import strefa from '../../assets/img/projects/strefa.webp';
 import Carousel from "../../containers/Carousel";
+import line4 from "../../assets/img/line4.webp";
 
 
 const projects = [
@@ -36,21 +36,13 @@ const projects = [
 ];
 
 const ProjectsScreen = () => {
-
-
-
-    useEffect(() => {
-
-    }, []);
-
-
-
-
+    
     return (
         <Container>
             <ProjectsDiv>
-                <LineCircle/>
-
+                <LineCircleLeft />
+                <LineImage image={line4} />
+                <LineCircleRight />
                 <StyledHeader>
                     PROJECTS
                 </StyledHeader>
@@ -66,8 +58,8 @@ export default ProjectsScreen;
 
 const Container = styled.div`
     width: 100%;
-    height: 28em;
-    margin-bottom: 18em;
+    height: 31em;
+    margin-bottom: 20em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,24 +74,53 @@ const ProjectsDiv = styled.div`
     box-shadow: ${props => props.theme.mainShadow};
 `;
 
-const LineCircle = styled.div`
+const LineImage = styled.div`
+    background-image: url(${props => props.image});
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: 48% 0;
+    z-index: 1000;
+    background-size: 85% 90%;
+    max-width: 1140px;
+`;
+
+const LineCircleLeft = styled.div`
     width: 1em;
     height: 1em;
     border-radius: 50%;
     border: solid 2px ${props => props.theme.mainColor};
     position: relative;
-    left: 32.5%;
-    top: 9.25em;
-    
-    @media (max-width: ${props => props.theme.rwd.lg}px) {
-      left: 34%;
+    left: 6.6%;
+    top: 7.6em;
+
+    @media (max-width: ${props => props.theme.rwd.md}px) {
+      left: 6%;
     }
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
-      left: 33.5%;
+      left: 5%;
     }
 `;
 
+const LineCircleRight = styled.div`
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: solid 2px ${props => props.theme.mainColor};
+    position: relative;
+    left: 90%;
+    top: 16.2em;
+    
+    @media (max-width: ${props => props.theme.rwd.md}px) {
+      left: 89.2%;
+    }
+    
+    @media (max-width: ${props => props.theme.rwd.sm}px) {
+      left: 88.5%;
+    }
+`;
 
 const StyledHeader = styled.h1`
     position: relative;
@@ -107,7 +128,7 @@ const StyledHeader = styled.h1`
     left: 50%;
     margin-left: -100px;
     width: 200px;
-    top: 5em;
+    top: 6em;
     color: ${props => props.theme.mainColor};
     
     &:after {
@@ -126,6 +147,6 @@ const StyledHeader = styled.h1`
 const CarouselContainer = styled.div`
     width: 100%;
     position: relative;
-    top: 15em;
+    top: 18em;
 `;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import line3 from "../../assets/img/line3.png";
+import line3 from "../../assets/img/line3.webp";
 import ContactForm from "../common/ContactForm";
 
 const ContactScreen = () => (
@@ -9,7 +9,7 @@ const ContactScreen = () => (
         <LineImage image={line3}/>
         <LineCircleBottom/>
         <StyledHeader>
-            CONTACT ME
+            GET IN TOUCH
         </StyledHeader>
         <FormWrapper>
             <ContactForm/>

@@ -43,14 +43,14 @@ const ItemContent = styled.div`
     }
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
-        padding: 2em;
+        padding: 0;
     }
 `;
 
 const Logo = styled.div`
     width: 100%;
     height: 100%;
-    background: ${props => props.theme.mainSecondColor};
+    background: ${props => props.theme.mainGradient};
     mask: url(${props => props.src});
     mask-size: auto 100%;
     mask-repeat: no-repeat;
@@ -69,6 +69,9 @@ const ExperienceText = styled.p`
     font-size: 2em;
     font-family: 'Josefin Sans', sans-serif;
     
+    @media (max-width: ${props => props.theme.rwd.sm}px) {
+        font-size: 1em;
+    }
 `;
 
 const PhotoWrapper = styled.div`

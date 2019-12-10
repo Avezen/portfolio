@@ -1,13 +1,14 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import styled from "styled-components";
 import ProjectItem from "../components/common/ProjectItem";
+import {isMobile} from 'react-device-detect';
 
 class Carousel extends Component {
     state = {
         project: 0,
         step: 0
     };
-    firstProjectTranslate = -19;
+    firstProjectTranslate = 0;
     pointerDown = false;
     pointerDownValue = 0;
     pointerUpValue = 0;
@@ -80,7 +81,7 @@ class Carousel extends Component {
                 this.setState({project: this.projectNumberByTranslate(this.pointerUpValue)});
 
                 if(
-                    this.projectNumberByTranslate(this.pointerUpValue) <= 1
+                    this.projectTranslateByNumber(1) < this.pointerUpValue
                 ){
                     this.pointerUpValue = this.projectTranslateByNumber(1);
                     this.setState({project: 1});
@@ -90,7 +91,7 @@ class Carousel extends Component {
                         transition: all 0.3s;
                         `;
 
-                }else if(this.projectNumberByTranslate(this.pointerUpValue) > this.props.items.length - 2){
+                }else if(this.projectTranslateByNumber(this.props.items.length - 2) > this.pointerUpValue){
                     this.pointerUpValue = this.projectTranslateByNumber(this.props.items.length - 2);
                     this.setState({project: this.props.items.length - 2});
 
@@ -134,7 +135,7 @@ class Carousel extends Component {
                     this.setState({project: this.projectNumberByTranslate(this.pointerUpValue)});
 
                     if(
-                        this.projectNumberByTranslate(this.pointerUpValue) <= 1
+                        this.projectTranslateByNumber(1) < this.pointerUpValue
                     ){
                         this.pointerUpValue = this.projectTranslateByNumber(1);
                         this.setState({project: 1});
@@ -144,8 +145,7 @@ class Carousel extends Component {
                         transition: all 0.3s;
                         `;
 
-                    }else if(this.projectNumberByTranslate(this.pointerUpValue) > this.props.items.length - 2){
-                        console.log('right');
+                    }else if(this.projectTranslateByNumber(this.props.items.length - 2) > this.pointerUpValue){
                         this.pointerUpValue = this.projectTranslateByNumber(this.props.items.length - 2);
                         this.setState({project: this.props.items.length - 2});
 
@@ -158,41 +158,41 @@ class Carousel extends Component {
             });
 
 
-            carouselElement.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                this.pointerDown = true;
-                this.pointerDownValue = e.pageX;
-            });
-
-            carouselElement.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                if (!this.pointerDown) return false;
-
-                let translateBy = this.pointerUpValue - (this.pointerDownValue - e.pageX);
-
-                carouselElement.style.cssText = `transform: translateX(${translateBy}px)`;
-            });
-
-            carouselElement.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                this.pointerDown = false;
-
-                this.pointerUpValue = this.pointerUpValue - (this.pointerDownValue - e.pageX);
-                this.setState({project: this.projectNumberByTranslate(this.pointerUpValue)})
-            });
+            // carouselElement.addEventListener('touchstart', (e) => {
+            //     e.preventDefault();
+            //     this.pointerDown = true;
+            //     this.pointerDownValue = e.pageX;
+            // });
+            //
+            // carouselElement.addEventListener('touchmove', (e) => {
+            //     e.preventDefault();
+            //     if (!this.pointerDown) return false;
+            //
+            //     let translateBy = this.pointerUpValue - (this.pointerDownValue - e.pageX);
+            //
+            //     carouselElement.style.cssText = `transform: translateX(${translateBy}px)`;
+            // });
+            //
+            // carouselElement.addEventListener('touchend', (e) => {
+            //     e.preventDefault();
+            //     this.pointerDown = false;
+            //
+            //     this.pointerUpValue = this.pointerUpValue - (this.pointerDownValue - e.pageX);
+            //     this.setState({project: this.projectNumberByTranslate(this.pointerUpValue)})
+            // });
         }
     }
 
     projectTranslateByNumber = (projectNumber) => {
         const {step} = this.state;
 
-        return (this.firstProjectTranslate - projectNumber * step) * 16;
+        return (this.firstProjectTranslate - projectNumber * step + step) * 16;
     };
 
     projectNumberByTranslate = (translate) => {
         const {step} = this.state;
 
-        return Math.round(-((translate / 16) + this.firstProjectTranslate) / step) - 1
+        return Math.round(-((translate / 16) + this.firstProjectTranslate - step) / step)
     };
 
     prevProject = () => {
@@ -203,14 +203,14 @@ class Carousel extends Component {
                         transition: all 0.3s;
                         `;
 
-        if (project > 1) {
+        if (project > (isMobile ? 0 : 1)) {
             this.setState(prevProject => ({
                 project: prevProject.project - 1
             }), () => {
                 this.pointerUpValue = this.projectTranslateByNumber(this.state.project);
             });
         } else {
-            this.setState({project: items.length - 2}, () => {
+            this.setState({project: isMobile ? items.length - 1 : items.length - 2}, () => {
                 this.pointerUpValue = this.projectTranslateByNumber(this.state.project);
             });
         }
@@ -224,14 +224,14 @@ class Carousel extends Component {
                         transition: all 0.3s;
                         `;
 
-        if (project < items.length - 2) {
+        if (project < (isMobile ? items.length - 1 : items.length - 2)) {
             this.setState(prevProject => ({
                 project: prevProject.project + 1
             }), () => {
                 this.pointerUpValue = this.projectTranslateByNumber(this.state.project);
             });
         } else {
-            this.setState({project: 1}, () => {
+            this.setState({project: isMobile ? 0 : 1}, () => {
                 this.pointerUpValue = this.projectTranslateByNumber(this.state.project);
             });
         }
@@ -240,12 +240,12 @@ class Carousel extends Component {
 
     render() {
         const {items} = this.props;
-        const {project} = this.state;
+        const {project, step} = this.state;
 
         return (
             <React.Fragment>
                 <CarouselWrapper ref={this.carouselWrapper}>
-                    <ProjectsContainer showProject={this.projectTranslateByNumber(project)} ref={this.carousel}>
+                    <ProjectsContainer showProject={this.projectTranslateByNumber(project)} centerProjects={(step*3*16)/2} ref={this.carousel}>
                         {items.map((item, key) => {
                             return (
                                 <ProjectWrapper key={key} ref={this.projectWrapper}>
@@ -279,13 +279,14 @@ const CarouselWrapper = styled.div`
 `;
 
 const ProjectsContainer = styled.div`
-    padding: 0 5em 0 5em;
+    //padding: 0 5em 0 5em;
     display: flex;
     width: auto;
     position: absolute;
     transform: translateX(${props => props.showProject}px);
     //transition: transform 0s;
     left: 50%;
+    margin-left: -${props => props.centerProjects}px;
     opacity: 1;
     
     cursor: move; /* fallback if grab cursor is unsupported */

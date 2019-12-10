@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import line1 from '../../assets/img/line1.png'
+import line1 from '../../assets/img/line1.webp'
 
 const WelcomeScreen = ({executeScroll}) => {
     return (
@@ -26,6 +26,8 @@ const WelcomeScreen = ({executeScroll}) => {
             </Arrow>
             <ImageContainer>
                 <LineImage image={line1}/>
+                <LineCircle/>
+
             </ImageContainer>
 
             <Foot />
@@ -105,6 +107,27 @@ const LineImage = styled.div`
     box-sizing: border-box;
 `;
 
+
+const LineCircle = styled.div`
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: solid 2px ${props => props.theme.mainColor};
+    position: relative;
+    left: 33.5%;
+    top: -2.2em;
+    z-index: 100;
+    
+    @media (max-width: ${props => props.theme.rwd.lg}px) {
+      left: 33.2%;
+    }
+    
+    @media (max-width: ${props => props.theme.rwd.sm}px) {
+      left: 32%;
+    }
+`;
+
+
 const rotate = keyframes`
   0% {
     transform: translateY(-3px);
@@ -163,7 +186,8 @@ const ArrowDown = styled.div`
 
 const Foot = styled.div`
     height: 5em;
-    width: 1040px;
+    width: 100%;
+    max-width: 1040px;
     margin: 0 auto;
     position: absolute;
     bottom: 0;

@@ -8,6 +8,29 @@ import Footer from "../components/MainPage/Footer";
 import scrollToComponent from 'react-scroll-to-component';
 import SocialIcons from "../components/common/SocialIcons";
 import {isMobile} from 'react-device-detect';
+import AboutScreen from "../components/MainPage/AboutScreen";
+import git from "../assets/img/logo/git.svg";
+import linked from "../assets/img/logo/linked.svg";
+import cv from "../assets/img/logo/cv.svg";
+
+
+const socials = [
+    {
+        name: 'Github',
+        logo: git,
+        url: 'https://github.com/Avezen'
+    },
+    {
+        name: 'LinkedIn',
+        logo: linked,
+        url: 'https://www.linkedin.com/in/maciej-borzymowski-130321155/'
+    },
+    {
+        name: 'CV',
+        logo: cv,
+        url: '/cv/Maciej Borzymowski_CV.pdf'
+    }
+];
 
 
 class MainPage extends Component {
@@ -36,13 +59,20 @@ class MainPage extends Component {
         return (
             <React.Fragment>
                 <nav>
-                    <SocialIcons/>
+                    <IconsContainer isMobile={isMobile}>
+                        <SocialIcons items={socials}/>
+                    </IconsContainer>
                 </nav>
                 <main>
                     <StyledSection windowHeight={isMobile && windowHeight}>
                         <WelcomeScreen executeScroll={this.executeScroll}/>
                     </StyledSection>
-                    <OverflowSection ref={this.myRef}>
+                    <section ref={this.myRef}>
+                        <StyledContainer>
+                            <AboutScreen/>
+                        </StyledContainer>
+                    </section>
+                    <OverflowSection>
                         <StyledContainer>
                             <ProjectsScreen/>
                         </StyledContainer>
@@ -59,7 +89,7 @@ class MainPage extends Component {
                     </section>
                 </main>
                 <footer>
-                    <Footer/>
+                    <Footer items={socials}/>
                 </footer>
             </React.Fragment>
         );
@@ -73,6 +103,20 @@ const StyledContainer = styled.div`
     margin-right: auto;
     margin-left: auto;
     max-width: 1040px;
+`;
+
+const IconsContainer = styled.div`
+    position: ${props => props.isMobile ? 'absolute' : 'fixed'};
+    top: ${props => props.isMobile ? '0' : '25%'};
+    z-index: 10000;
+    
+    @media (max-width: ${props => props.theme.rwd.md}px) {
+        top: ${props => props.isMobile ? '0' : '15%'};
+    }
+    
+    @media (max-width: ${props => props.theme.rwd.sm}px) {
+        top: ${props => props.isMobile ? '0' : '5%'};
+    }
 `;
 
 const StyledSection = styled.section`

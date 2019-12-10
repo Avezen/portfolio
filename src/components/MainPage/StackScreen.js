@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import line2 from "../../assets/img/line2.png";
+import line2 from "../../assets/img/line2.webp";
 import php from "../../assets/img/logo/php.svg";
 import symfony from "../../assets/img/logo/symfony.svg";
 import html from "../../assets/img/logo/html5.svg";
@@ -55,7 +55,7 @@ const StackScreen = () => {
             </StyledHeader>
             <StyledRow>
                 {stackItems.map((item, key) =>
-                    <StyledCol lg={4} sm={6} key={key}>
+                    <StyledCol lg={4} sm={6} xs={6} key={key}>
                         <ItemContainer>
                             <StackItem item={item}/>
                         </ItemContainer>
@@ -88,8 +88,9 @@ const ItemContainer = styled.div`
     padding: 2em;
     
     @media (max-width: ${props => props.theme.rwd.md}px) {
-      padding: 1em;
+      padding: 1.5em;
     }
+    
 `;
 
 const Container = styled.div`
@@ -118,7 +119,7 @@ const LineCircleLeft = styled.div`
     border: solid 2px ${props => props.theme.mainColor};
     position: relative;
     left: 27.05%;
-    top: -2.8em;
+    top: -3.1em;
     
     @media (max-width: ${props => props.theme.rwd.md}px) {
       left: 26.7%;
@@ -135,15 +136,15 @@ const LineCircleRight = styled.div`
     border-radius: 50%;
     border: solid 2px ${props => props.theme.mainColor};
     position: relative;
-    left: 69.6%;
+    left: 71%;
     top: -12.6em;
 
     @media (max-width: ${props => props.theme.rwd.md}px) {
-      left: 69.2%;
+      left: 70.6%;
     }
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
-      left: 68.5%;
+      left: 69%;
     }
 `;
 
