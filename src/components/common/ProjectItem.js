@@ -24,6 +24,7 @@ const ItemLink = styled.a`
     border: solid 5px ${props => props.theme.mainColor};
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: ${props => props.theme.mainShadow};
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
       width: 20em;

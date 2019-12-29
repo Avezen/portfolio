@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import przetarg from '../../assets/img/projects/przetarg.webp';
-import chata from '../../assets/img/projects/chata.webp';
-import strefa from '../../assets/img/projects/strefa.webp';
+import przetarg from '../../assets/img/projects/przetarg.png';
+import chata from '../../assets/img/projects/chata.png';
+import strefa from '../../assets/img/projects/strefa.png';
+import compendium from '../../assets/img/projects/compendium.png';
 import Carousel from "../../containers/Carousel";
-import line4 from "../../assets/img/line4.webp";
+import line4 from "../../assets/img/line4.png";
 
 
 const projects = [
@@ -24,9 +25,9 @@ const projects = [
         image: przetarg
     },
     {
-        name: 'Przetarg Expert',
-        url: 'https://przetarg.expert/',
-        image: przetarg
+        name: 'Compendium',
+        url: 'http://compendium.maciejborzymowski.com/symfony',
+        image: compendium
     },
     {
         name: 'Przetarg Expert',
@@ -122,13 +123,13 @@ const LineCircleRight = styled.div`
     }
 `;
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.h2`
     position: relative;
     text-align: center;
     left: 50%;
     margin-left: -100px;
     width: 200px;
-    top: 6em;
+    top: 7.5em;
     color: ${props => props.theme.mainColor};
     
     &:after {

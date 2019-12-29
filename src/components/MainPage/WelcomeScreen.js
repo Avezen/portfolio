@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import line1 from '../../assets/img/line1.webp'
+import line1 from '../../assets/img/line1.png'
 
 const WelcomeScreen = ({executeScroll}) => {
     return (
@@ -52,6 +52,7 @@ const CenteredDiv = styled.div`
 `;
 
 const StyledSmall = styled.small`
+    font-family: 'PT Serif', serif;
     font-size: 18px;
     color: ${props => props.theme.mainFourthColor};
 `;
@@ -77,6 +78,7 @@ const Big = styled.div`
 `;
 
 const StyledHeader = styled.h1`
+    font-family: 'PT Serif', serif;
     font-size: 4rem;
     color: ${props => props.theme.mainColor};
     font-weight: 700;

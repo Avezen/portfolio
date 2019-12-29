@@ -1,0 +1,19 @@
+RewriteEngine On
+ErrorDocument 404 http://maciejborzymowski.com/
+ErrorDocument 500 http://maciejborzymowski.com/
+
+
+
+#<IfModule mod_rewrite.c>
+#    Options -MultiViews
+#    RewriteEngine On
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^(.*)$ index.php [QSA,L]
+#
+#</IfModule>
+#
+#<IfModule !mod_rewrite.c>
+#    <IfModule mod_alias.c>
+#        RedirectMatch 302 ^/$ /index.php/
+#    </IfModule>
+#</IfModule>

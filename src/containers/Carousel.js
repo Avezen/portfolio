@@ -312,7 +312,7 @@ const ButtonsWrapper = styled.div`
     justify-content: center;
     position: absolute;
     bottom: 0;
-    padding-top: 2em;
+    padding-top: 1em;
 `;
 
 const CarouselButton = styled.div`
@@ -324,10 +324,12 @@ const CarouselButton = styled.div`
 
 const PrevButton = styled(CarouselButton)`
     margin: 0 1em 0 1em;
+    padding: 1em 0 3em 2em;
 `;
 
 const NextButton = styled(CarouselButton)`
     margin: 0 1em 0 1em;
+    padding: 1em 2em 3em 0;
 `;
 
 const Arrow = styled.div`

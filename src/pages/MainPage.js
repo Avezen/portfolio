@@ -28,7 +28,7 @@ const socials = [
     {
         name: 'CV',
         logo: cv,
-        url: '/cv/Maciej Borzymowski_CV.pdf'
+        url: '/cv/Maciej Borzymowski__CV.pdf'
     }
 ];
 

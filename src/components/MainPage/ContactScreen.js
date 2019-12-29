@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import line3 from "../../assets/img/line3.webp";
+import line3 from "../../assets/img/line3.png";
 import ContactForm from "../common/ContactForm";
 
 const ContactScreen = () => (
@@ -75,7 +75,7 @@ const LineImage = styled.div`
     background-size: 78% 98%;
 `;
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.h2`
     width: 300px;
     position: relative;
     left: 15%;

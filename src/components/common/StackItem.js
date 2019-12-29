@@ -66,7 +66,7 @@ const ExperienceText = styled.p`
     bottom: 0;
     z-index: 3;
     color: ${props => props.theme.mainSecondColor};
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Josefin Sans', sans-serif;
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {

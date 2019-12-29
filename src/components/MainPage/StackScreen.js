@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import line2 from "../../assets/img/line2.webp";
+import line2 from "../../assets/img/line2.png";
 import php from "../../assets/img/logo/php.svg";
 import symfony from "../../assets/img/logo/symfony.svg";
 import html from "../../assets/img/logo/html5.svg";
@@ -72,7 +72,7 @@ export default StackScreen;
 const StyledRow = styled(Row)`
     margin-left: 0 !important;
     margin-right: 0 !important;
-    margin-top: 3em;
+    margin-top: 2em;
     padding: 0 3em;
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
@@ -148,7 +148,7 @@ const LineCircleRight = styled.div`
     }
 `;
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.h2`
     position: relative;
     left: 25%;
     width: 300px;

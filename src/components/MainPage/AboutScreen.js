@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import me from "../../assets/img/me.webp";
+import me from "../../assets/img/me2.jpg";
 
 
 const AboutScreen = () => {
@@ -15,10 +15,22 @@ const AboutScreen = () => {
                     <Photo img={me}/>
                 </PhotoContainer>
                 <TextContainer>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.
+                    <h3>
+                        Hello,
+                    </h3>
+                    <p>
+                        I am self organized person who loves creating beautiful things, focused on fine-tuned,
+                        easy-in-use interfaces, that people would love to interact with. That is my main goal as a
+                        front-end/full-stack developer besides creating high quality, reusable
+                        code. I recently got interested in UI/UX design.
+                    </p>
+                    <p>
+                        I used to work as a backend/full-stack developer with modern PHP framework called Symfony
+                        but when i tried ReactJS at my home I felt like this is what i truly want to do.
+                    </p>
+                    <p>
+                        I am inspired by nature and talented people. Also big fan of electronic music and DJing for my friends.
+                    </p>
                 </TextContainer>
             </AboutDiv>
         </Container>
@@ -40,12 +52,11 @@ const AboutDiv = styled.div`
     height: 100%;
     position: relative;
     background-color: ${props => props.theme.mainSecondColor};
-    background: ${props => props.theme.mainSecondColor};
     box-shadow: ${props => props.theme.mainShadow};
     padding-top: 10em;
 `;
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.h2`
     position: relative;
     left: 50%;
     margin-left: -150px;
@@ -94,8 +105,8 @@ const Photo = styled.div`
 `;
 
 const TextContainer = styled.div`
-    padding: 1em 2em 3em 2em;
-    font-size: 1.5em;
+    padding: 1em 5em 3em 5em;
+    font-size: 1.2em;
     color: ${props => props.theme.mainFourthColor};
     
     @media (max-width: ${props => props.theme.rwd.sm}px) {
