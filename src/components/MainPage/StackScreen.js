@@ -13,6 +13,16 @@ import StackItem from "../common/StackItem";
 
 const stackItems = [
     {
+        name: 'ReactJS',
+        image: react,
+        experience: '18 months'
+    },
+    {
+        name: 'TypeScript',
+        image: ts,
+        experience: '6 months'
+    },
+    {
         name: 'HTML',
         image: html,
         experience: '20 months'
@@ -31,16 +41,6 @@ const stackItems = [
         name: 'Symfony',
         image: symfony,
         experience: '18 months'
-    },
-    {
-        name: 'ReactJS',
-        image: react,
-        experience: '6 months'
-    },
-    {
-        name: 'TypeScript',
-        image: ts,
-        experience: '6 months'
     }
 ];
 

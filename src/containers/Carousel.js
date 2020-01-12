@@ -24,12 +24,12 @@ class Carousel extends Component {
         }
 
 
-        let currentProject;
-        if (this.props.items.length > 4) {
-            currentProject = 1;
-        } else {
-            currentProject = this.props.items.length / 2;
-        }
+        let currentProject = 1;
+        // if (this.props.items.length > 4) {
+        //     currentProject = 1;
+        // } else {
+        //     currentProject = this.props.items.length / 2;
+        // }
 
         this.setState({project: currentProject});
 

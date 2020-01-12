@@ -15,16 +15,6 @@ const projects = [
         image: strefa
     },
     {
-        name: 'Zrobimy Ci Chatę',
-        url: 'http://zrobimy-ci-chate.maciejborzymowski.com/',
-        image: chata
-    },
-    {
-        name: 'Przetarg Expert',
-        url: 'https://przetarg.expert/',
-        image: przetarg
-    },
-    {
         name: 'Compendium',
         url: 'http://compendium.maciejborzymowski.com/symfony',
         image: compendium
@@ -33,6 +23,11 @@ const projects = [
         name: 'Przetarg Expert',
         url: 'https://przetarg.expert/',
         image: przetarg
+    },
+    {
+        name: 'Zrobimy Ci Chatę',
+        url: 'http://zrobimy-ci-chate.maciejborzymowski.com/',
+        image: chata
     }
 ];
 
