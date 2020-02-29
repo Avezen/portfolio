@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import przetarg from '../../assets/img/projects/przetarg.png';
-import chata from '../../assets/img/projects/chata.png';
+import recipe from '../../assets/img/projects/recipe.png';
 import strefa from '../../assets/img/projects/strefa.png';
+import jira from '../../assets/img/projects/jira.png';
 import compendium from '../../assets/img/projects/compendium.png';
 import Carousel from "../../containers/Carousel";
 import line4 from "../../assets/img/line4.png";
@@ -20,14 +21,19 @@ const projects = [
         image: compendium
     },
     {
+        name: 'Jira like app',
+        url: 'http://jira.maciejborzymowski.com/',
+        image: jira
+    },
+    {
+        name: 'Recipe app',
+        url: 'http://recipe.maciejborzymowski.com/',
+        image: recipe
+    },
+    {
         name: 'Przetarg Expert',
         url: 'https://przetarg.expert/',
         image: przetarg
-    },
-    {
-        name: 'Zrobimy Ci Chatę',
-        url: 'http://zrobimy-ci-chate.maciejborzymowski.com/',
-        image: chata
     }
 ];
 
